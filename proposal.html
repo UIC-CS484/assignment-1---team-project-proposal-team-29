@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CS 484 Project Proposal</title>
+        <style>
+            #container{
+                display: flex;
+                flex-wrap: wrap;
+                width: 80%;
+                margin: auto;
+            }
+            header{
+                width: 100%;
+                height: 200px;
+                background-color: rgb(190, 186, 186);
+                font-family: 'Trebuchet MS', sans-serif;
+                font-size: 40px;
+                font-weight: bold;
+                text-align: center;
+                display: inline-block;
+                height: 100%;
+                vertical-align: middle;
+            }
+            .middleboxes{
+                background-color: rgb(190, 186, 186);
+                font-family: 'Trebuchet MS', sans-serif;
+                font-size: 16px;
+                width: 400px;
+                height: 500px;
+                flex-grow: 1;
+                flex-shrink: 0;
+                flex-basis: 400px;;
+                margin: 1%;
+
+            }
+            footer{
+                display: flex;
+                background-color: rgb(190, 186, 186);
+                width: 100%;
+                height: 200px;
+                clear: both;
+            }
+            .footer_box{
+                flex: 1 0 200px;
+                background-color: grey;
+                width: 150px;
+                margin: 1%;
+                height: 150px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <header>Project Topic: Convert Spotify Playlists into Bandcamp Links to Directly Support Artists</header>
+            <section class="middleboxes">
+                The RESTful APIs that will be used for this site are the Spotify API and the Bandcamp API.<br/><br/>
+                The site will use the Spotify API to pull in the data from a playlist the user enters, then the Bandcamp API will be used to get the Bandcamp links for the songs in the playlists.<br/><br/>
+                I want to also use the Spotify API to use the users' playlist to suggest other artists the user might enjoy, then return the Bandcamp links for those artists.<br/><br/>
+                To sign up for the site, I'll ask for the users' first and last name, email, and date of birth. I'll also be collecting the users' Spotify login information, however I'm not sure if I will be storing that yet.<br/><br/>
+                Possible DB tables and attributes:
+                <ul>
+                    <li>USER -> user_id, first_name, last_name, dob, email, password, spotify_user_id</li>
+                    <li>ARTIST -> artist_id, artist_spotify_id, artist_name, artist_bc_link</li>
+                    <li>SONG -> song_id, song_spotify_id, song_name, song_bc_link</li>
+                </ul>
+                
+            </section>
+            <section class="middleboxes drop">Address the following in this section:</section>
+            <footer>
+                <div class="footer_box"></div>
+                <div class="footer_box"></div>
+                <div class="footer_box"></div>
+            </footer>
+        </div>
+    </body>
+</html>
