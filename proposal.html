@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
+        <meta charset="utf-8" />
         <title>CS 484 Project Proposal</title>
         <style>
             #container{
@@ -37,7 +38,7 @@
                 display: flex;
                 background-color: rgb(190, 186, 186);
                 width: 100%;
-                height: 200px;
+                height: 300px;
                 clear: both;
             }
             .footer_box{
@@ -45,7 +46,31 @@
                 background-color: grey;
                 width: 150px;
                 margin: 1%;
-                height: 150px;
+                padding: 5px;
+                height: 275px;
+                font-family: 'Trebuchet MS', sans-serif;
+                font-size: 12px;
+                overflow-wrap: break-word;
+            }
+
+            /* smaller than 1200 pixels */
+            @media screen and (max-width: 1200px) {
+                header{
+                    color: rgb(22, 175, 168);
+                    
+                }
+            }
+            /* smaller than 900 pixels */
+            @media screen and (max-width: 900px) {
+                header{
+                    color: rgb(105, 241, 157);
+                }
+            }
+            /* smaller than 700 pixels */
+            @media screen and (max-width: 700px) {
+                header{
+                    color: rgb(143, 110, 110);
+                }
             }
         </style>
     </head>
@@ -53,6 +78,7 @@
         <div id="container">
             <header>Project Topic: Convert Spotify Playlists into Bandcamp Links to Directly Support Artists</header>
             <section class="middleboxes">
+                <h1>API Section</h1>
                 The RESTful APIs that will be used for this site are the Spotify API and the Bandcamp API.<br/><br/>
                 The site will use the Spotify API to pull in the data from a playlist the user enters, then the Bandcamp API will be used to get the Bandcamp links for the songs in the playlists.<br/><br/>
                 I want to also use the Spotify API to use the users' playlist to suggest other artists the user might enjoy, then return the Bandcamp links for those artists.<br/><br/>
@@ -65,15 +91,68 @@
                 </ul>
             </section>
             <section class="middleboxes">
+                <h1>User Section</h1>
                 The people I see potentially using my site are people who want to directly support the artsits they enjoy on Spotify, since Bandcamp purchases go directly to the artist and streaming pays an average of $0.004 per stream.<br/><br/>
                 Goals I have for my site are to promote directly supporting artists, and to make it easier to do so.<br/>
                 A large reason why people use streaming is convenience. This site would eliminate having to physically search for each song on Bandcamp, which would remove a lot of the inconvenience.<br/><br/>
                 I chose this topic because music and supporting musicians is something that's important to me, specifically local artists who get the most screwed over by streaming.
             </section>
             <footer>
-                <div class="footer_box"></div>
-                <div class="footer_box"></div>
-                <div class="footer_box"></div>
+                <div class="footer_box">
+                    <p style="font-weight: bold;">Links to APIs:</p>
+                    <ul>
+                        <li>Spotify: https://developer.spotify.com/documentation/web-api/</li>
+                        <li>Bandcamp: https://bandcamp.com/developer</li>
+                    </ul>
+                    <p style="font-weight: bold;">Sites I'd like to model after:</p>
+                    <ul>
+                        <li>Want to emulate how they collect the Spotify info: https://pudding.cool/2020/12/judge-my-spotify/</li>
+                        <li>A site I could realistically model after: https://www.chosic.com/spotify-playlist-analyzer/</li>
+                    </ul>
+                    <p style="font-weight: bold;">Helpful Resources:</p>
+                    <ul>
+                        <li>Node.js Documentation: https://nodejs.org/en/docs/</li>
+                        <li>CSS W3Schools: https://www.w3schools.com/w3css/defaulT.asp</li>
+                    </ul>
+                </div>
+                <div class="footer_box">
+                    <p style="font-weight: bold;">Questions and Concerns:</p>
+                    <ul>
+                        <li>This will be my first time using HTML, CSS, and Javascript, so I'm a bit nervous about the frontend element of the site.</li>
+                        <li>Will the aesthetic of the site be a part of the grade? Asking because of the above.</li>
+                        <li>Would it be worthwhile to look into Bootstrap as a frontend beginner?</li>
+                    </ul>
+                </div>
+                <div class="footer_box">
+                    <div id="fontSizeEx" style="font-size: 20px;">
+                        <button type="button" onclick="changeFontSize('smaller')" name="smallerFont">A-</button>
+                        <button type="button" onclick="changeFontSize('larger')" name="largerFont">A+</button>
+                        <p>Font change example</p>
+                    </div>
+                </div>
+                <script>
+                    var text = document.getElementById("fontSizeEx");
+                    function changeFontSize(direction) {
+
+                        currTextSize = parseInt(text.style.fontSize);
+                        fontMin = 10;
+                        fontMax = 60;
+
+                        if (direction == "larger") {
+                            newTextSize = currTextSize + 5;
+                            if (newTextSize > fontMax) {window.alert("Max font size"); return;}
+                            text.style.fontSize = newTextSize.toString() + "px";
+                        }
+                        else if (direction == "smaller") {
+                            newTextSize = currTextSize - 5;
+                            if (newTextSize < fontMin) {window.alert("Min font size"); return;}
+                            text.style.fontSize = newTextSize.toString() + "px";
+                        }
+                        else {
+                            text.style.fontSize = currTextSize;
+                        }
+                    }
+                </script>
             </footer>
         </div>
     </body>
